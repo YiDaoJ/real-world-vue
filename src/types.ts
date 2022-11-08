@@ -1,5 +1,5 @@
-export interface Event {
-  id: number
+export interface iEvent {
+  id: string
   category: string
   title: string
   description: string

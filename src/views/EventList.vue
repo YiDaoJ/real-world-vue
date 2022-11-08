@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import EventCard from '@/components/EventCard.vue' // @ is an alias to /src
-import { Event } from '@/types'
+import { iEvent } from '@/types'
 import EventService from '@/services/EventService'
 import { AxiosResponse, AxiosError } from 'axios'
 
@@ -19,13 +19,12 @@ export default defineComponent({
   },
   data() {
     return {
-      events: Array as PropType<Array<Event>>,
+      events: [] as iEvent[],
     }
   },
   created() {
     EventService.getEvents()
       .then((res: AxiosResponse) => {
-        console.log(res)
         this.events = res.data
       })
       .catch((err: AxiosError) => console.log(err))
