@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts">
+import { CategoryType } from '@/types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -30,10 +31,13 @@ export default defineComponent({
     },
     modelValue: {
       type: [String, Number],
+      // when a prop is declared to allow multiple types => https://vuejs.org/guide/components/props.html#boolean-casting
+      // Qn: what if type: String || Number => type: StringConstructor;
+      // Qn: conflict with "tupe types in TypeScript"? => https://fjolt.com/article/typescript-array-type#tuple-types-in-typescript
       default: '',
     },
     options: {
-      type: Array,
+      type: Array as () => Array<CategoryType>,
       require: true,
     },
   },

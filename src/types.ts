@@ -1,6 +1,6 @@
 export interface iEvent {
   id: string
-  category: string
+  category: CategoryType
   title: string
   description: string
   location: string
@@ -8,4 +8,10 @@ export interface iEvent {
   time: string
   petsAllowed: boolean
   organizer: string
+  extras: {
+    catering: boolean
+    music: boolean
+  }
 }
+
+export type CategoryType = string | number

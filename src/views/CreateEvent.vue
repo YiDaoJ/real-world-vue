@@ -32,16 +32,22 @@ export default defineComponent({
         'education',
         'food',
         'community',
+        33,
       ],
       event: {
         category: '',
         title: '',
         description: '',
         location: '',
-      } as Partial<iEvent>,
+        extras: {
+          catering: false,
+          music: false,
+        },
+      } as iEvent,
     }
   },
-  components: { BaseSelect, BaseInput },
+  // ATTN: via auto importing
+  components: { BaseSelect, BaseInput, BaseCheckbox },
 })
 </script>
 
