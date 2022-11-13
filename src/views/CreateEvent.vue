@@ -16,16 +16,12 @@
 </template>
 
 <script lang="ts">
-import { iEvent } from '@/types'
-import { defineComponent } from 'vue'
 import BaseInput from '@/components/BaseInput.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
+import { iEvent } from '@/types'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  components: {
-    BaseInput,
-    BaseSelect,
-  },
   data() {
     return {
       categories: [
@@ -45,6 +41,7 @@ export default defineComponent({
       } as Partial<iEvent>,
     }
   },
+  components: { BaseSelect, BaseInput },
 })
 </script>
 
