@@ -11,11 +11,21 @@
       v-model="event.category"
     />
 
+    <h3>Extras</h3>
+    <BaseCheckbox
+      v-model="event.extras.catering"
+      label="Catering"
+      type="checkbox"
+    />
+
+    <BaseCheckbox v-model="event.extras.music" label="Music" type="checkbox" />
+
     <pre>{{ event }}</pre>
   </form>
 </template>
 
 <script lang="ts">
+import BaseCheckbox from '@/components/BaseCheckbox.vue'
 import BaseInput from '@/components/BaseInput.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
