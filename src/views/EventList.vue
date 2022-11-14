@@ -25,7 +25,7 @@ export default defineComponent({
   created() {
     EventService.getEvents()
       .then((res: AxiosResponse) => {
-        this.events = res.data
+        this.events = res.data.events
       })
       .catch((err: AxiosError) => console.log(err))
   },

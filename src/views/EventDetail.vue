@@ -28,7 +28,7 @@ export default defineComponent({
     // fetch event (by id) and set local date
     EventService.getEvent(this.id)
       .then((res: AxiosResponse) => {
-        this.event = res.data
+        this.event = res.data.event
       })
       .catch((err: AxiosError) => console.log(err))
   },
