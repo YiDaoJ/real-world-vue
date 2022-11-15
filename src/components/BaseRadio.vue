@@ -1,12 +1,13 @@
 <template>
   <div>
     <input
-      type="checkbox"
-      class="checkbox-field"
-      :checked="modelValue"
-      v-bind="{...$attrs, onChange: ($event) => $emit('update:modelValue', ($event.target as HTMLInputElement).checked)}"
+      type="radio"
+      class="radio-field"
+      :checked="modelValue === value || defaultValue === value"
+      v-bind="$attrs"
+      @change="$emit('update:modelValue', value)"
     />
-    <label v-if="label" class="checkbox-label">{{ label }}</label>
+    <label>{{ label }}</label>
   </div>
 </template>
 
@@ -21,8 +22,15 @@ export default defineComponent({
       default: '',
     },
     modelValue: {
-      type: Boolean,
-      default: false,
+      type: [String, Number, Boolean],
+      default: '',
+    },
+    value: {
+      type: [String, Number, Boolean],
+      required: true,
+    },
+    defaultValue: {
+      type: [String, Number, Boolean],
     },
   },
 })

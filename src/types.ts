@@ -15,3 +15,8 @@ export interface iEvent {
 }
 
 export type CategoryType = string | number
+
+export type RadioOptionType = {
+  label: string
+  value: string | number | boolean
+}

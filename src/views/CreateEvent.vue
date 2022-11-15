@@ -12,13 +12,15 @@
     />
 
     <h3>Extras</h3>
-    <BaseCheckbox
-      v-model="event.extras.catering"
-      label="Catering"
-      type="checkbox"
-    />
-
+    <BaseCheckbox v-model="event.extras.catering" label="Catering" />
     <BaseCheckbox v-model="event.extras.music" label="Music" type="checkbox" />
+
+    <BaseRadioGroup
+      v-model="event.petsAllowed"
+      :options="petsOptions"
+      name="pets"
+      title="Are pets allowed"
+    />
 
     <pre>{{ event }}</pre>
   </form>
@@ -27,6 +29,7 @@
 <script lang="ts">
 import BaseCheckbox from '@/components/BaseCheckbox.vue'
 import BaseInput from '@/components/BaseInput.vue'
+import BaseRadioGroup from '@/components/BaseRadioGroup.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
 import { defineComponent } from 'vue'
@@ -54,10 +57,20 @@ export default defineComponent({
           music: false,
         },
       } as iEvent,
+      petsOptions: [
+        { value: true, label: 'Yes' },
+        { value: false, label: 'No' },
+      ],
     }
   },
   // ATTN: via auto importing
-  components: { BaseSelect, BaseInput, BaseCheckbox },
+  components: {
+    BaseSelect,
+    BaseInput,
+    BaseCheckbox,
+    // BaseRadio,
+    BaseRadioGroup,
+  },
 })
 </script>
 
