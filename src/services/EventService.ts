@@ -1,3 +1,4 @@
+import { iEvent } from '@/types'
 import axios, { AxiosInstance } from 'axios'
 
 // single axios instance could be used fot the entire app
@@ -16,5 +17,8 @@ export default {
   },
   getEvent(id: string) {
     return apiClient.get('/events/' + id)
+  },
+  postEvent(event: iEvent) {
+    return apiClient.post('/events', { event })
   },
 }

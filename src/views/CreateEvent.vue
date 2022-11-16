@@ -1,6 +1,6 @@
 <template>
   <h2>create event forms</h2>
-  <form>
+  <form @submit.prevent="submitForm">
     <BaseInput v-model="event.title" label="Title" type="text" />
     <BaseInput v-model="event.description" label="Descirption" type="text" />
     <BaseInput v-model="event.location" label="Location" type="text" />
@@ -23,6 +23,8 @@
     />
 
     <pre>{{ event }}</pre>
+
+    <button type="submit">Submit</button>
   </form>
 </template>
 
@@ -33,7 +35,9 @@ import BaseRadioGroup from '@/components/BaseRadioGroup.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
 import { defineComponent } from 'vue'
-
+import EventService from '@/services/EventService'
+import { AxiosError, AxiosResponse } from 'axios'
+import { v4 as uuidv4 } from 'uuid'
 export default defineComponent({
   data() {
     return {
@@ -70,6 +74,13 @@ export default defineComponent({
     BaseCheckbox,
     // BaseRadio,
     BaseRadioGroup,
+  },
+  methods: {
+    submitForm() {
+      EventService.postEvent({ ...this.event, id: uuidv4() })
+        .then((res: AxiosResponse) => console.log({ res }))
+        .catch((err: AxiosError) => console.log({ err }))
+    },
   },
 })
 </script>
