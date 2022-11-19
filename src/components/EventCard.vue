@@ -4,8 +4,9 @@
     :to="{ name: 'EventDetail', params: { id: event?.id } }"
   >
     <div class="event-card">
-      <span>@{{ event.time }} on {{ event.date }}</span>
+      <span v-if="event.time">@{{ event.time }} on {{ event.date }}</span>
       <h4>{{ event.title }}</h4>
+      <span>{{ event.description }}</span>
     </div>
   </router-link>
 </template>

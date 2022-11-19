@@ -17,6 +17,9 @@
 
 nav {
   padding: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 nav a {

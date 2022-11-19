@@ -1,5 +1,5 @@
 <template>
-  <h2>create event forms</h2>
+  <h2>Create Event Forms</h2>
   <form @submit.prevent="submitForm">
     <BaseInput v-model="event.title" label="Title" type="text" />
     <BaseInput v-model="event.description" label="Descirption" type="text" />
@@ -21,8 +21,6 @@
       name="pets"
       title="Are pets allowed"
     />
-
-    <pre>{{ event }}</pre>
 
     <button type="submit">Submit</button>
   </form>
@@ -92,7 +90,7 @@ export default defineComponent({
 
 form {
   width: 500px;
-  padding: 0 20px 20px;
+  padding: 1.5rem;
   margin: 0 auto;
 
   display: flex;
@@ -120,7 +118,15 @@ label {
   justify-self: flex-start;
 }
 
-pre {
-  text-align: left;
+button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+
+  font-size: 1.2rem;
+  font-weight: 300;
+
+  background-color: #42b983;
+  cursor: pointer;
 }
 </style>
