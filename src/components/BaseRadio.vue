@@ -6,13 +6,15 @@
       :checked="modelValue === value || defaultValue === value"
       v-bind="$attrs"
       @change="$emit('update:modelValue', value)"
+      :id="id"
     />
-    <label>{{ label }}</label>
+    <label :for="id">{{ label }}</label>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({
   props: {
@@ -32,6 +34,10 @@ export default defineComponent({
     defaultValue: {
       type: [String, Number, Boolean],
     },
+  },
+  setup() {
+    const id = uuidv4()
+    return { id }
   },
 })
 </script>

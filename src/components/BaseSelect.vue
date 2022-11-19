@@ -1,5 +1,5 @@
 <template>
-  <label v-if="label">{{ label }}</label>
+  <label v-if="label" :for="id">{{ label }}</label>
   <select
     :value="modelValue"
     class="field"
@@ -7,6 +7,7 @@
       ...$attrs,
       onChange: ($event) => $emit('update:modelValue', ($event.target as HTMLSelectElement).value),
     }"
+    :id="id"
   >
     <option
       v-for="option in options"
@@ -22,6 +23,7 @@
 <script lang="ts">
 import { CategoryType } from '@/types'
 import { defineComponent } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({
   props: {
@@ -40,6 +42,10 @@ export default defineComponent({
       type: Array as () => Array<CategoryType>,
       require: true,
     },
+  },
+  setup() {
+    const id = uuidv4()
+    return { id }
   },
 })
 </script>

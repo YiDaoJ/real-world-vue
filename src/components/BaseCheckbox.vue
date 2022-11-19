@@ -4,14 +4,16 @@
       type="checkbox"
       class="checkbox-field"
       :checked="modelValue"
+      :id="id"
       v-bind="{...$attrs, onChange: ($event) => $emit('update:modelValue', ($event.target as HTMLInputElement).checked)}"
     />
-    <label v-if="label" class="checkbox-label">{{ label }}</label>
+    <label v-if="label" class="checkbox-label" :for="id">{{ label }}</label>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({
   props: {
@@ -24,6 +26,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+  },
+  setup() {
+    const id = uuidv4()
+    return { id }
   },
 })
 </script>
