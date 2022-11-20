@@ -4,8 +4,8 @@ export interface iEvent {
   title: string
   description: string
   location: string
-  date?: string
-  time?: string
+  date: string
+  time: string
   petsAllowed: boolean
   organizer: string
   extras: {

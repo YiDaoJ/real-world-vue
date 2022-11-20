@@ -3,6 +3,8 @@
   <form @submit.prevent="submitForm">
     <BaseInput v-model="event.title" label="Title" type="text" />
     <BaseInput v-model="event.description" label="Descirption" type="text" />
+    <BaseInput v-model="event.date" label="Date" type="date" />
+    <BaseInput v-model="event.time" label="Time" type="time" />
     <BaseInput v-model="event.location" label="Location" type="text" />
 
     <BaseSelect
@@ -47,17 +49,20 @@ export default defineComponent({
         'education',
         'food',
         'community',
-        33,
       ],
       event: {
+        id: '',
         category: '',
         title: '',
         description: '',
         location: '',
+        time: '',
+        date: '',
         extras: {
           catering: false,
           music: false,
         },
+        organizer: '', // avoid this.$store.state.data => can cause reactivity issuse
       } as iEvent,
       petsOptions: [
         { value: true, label: 'Yes' },
@@ -70,12 +75,13 @@ export default defineComponent({
     BaseSelect,
     BaseInput,
     BaseCheckbox,
-    // BaseRadio,
     BaseRadioGroup,
   },
   methods: {
     submitForm() {
-      EventService.postEvent({ ...this.event, id: uuidv4() })
+      this.event.organizer = this.$store.state.user
+      this.event.id = uuidv4()
+      EventService.postEvent(this.event)
         .then((res: AxiosResponse) => console.log({ res }))
         .catch((err: AxiosError) => console.log({ err }))
     },

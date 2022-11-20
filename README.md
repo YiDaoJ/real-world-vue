@@ -2,9 +2,9 @@
 
 Learn vue 3 along with [Vue Mastery](https://www.vuemastery.com/).
 
-Part 1: [Real World Vue 3](https://www.vuemastery.com/courses/real-world-vue3/rwv3-orientation) ☑️
-Part 2: [Vue 3 Forms](https://www.vuemastery.com/courses/vue3-forms/forms-introduction) ☑️
-Part 3: [Vuex Fundamentals](https://www.vuemastery.com/courses/vuex-fundamentals/vuex4-intro-to-vuex)
+- Part 1: [Real World Vue 3](https://www.vuemastery.com/courses/real-world-vue3/rwv3-orientation) ☑️
+- Part 2: [Vue 3 Forms](https://www.vuemastery.com/courses/vue3-forms/forms-introduction) ☑️
+- Part 3: [Vuex Fundamentals](https://www.vuemastery.com/courses/vuex-fundamentals/vuex4-intro-to-vuex)
 
 ## Project setup
 
