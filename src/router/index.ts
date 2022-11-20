@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import EventList from '@/views/EventList.vue'
 import EventDetail from '@/views/EventDetail.vue'
 import CreateEvent from '@/views/CreateEvent.vue'
+import ErrorDisplay from '@/views/ErrorDisplay.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,6 +20,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'EventDetail',
     props: true,
     component: EventDetail,
+  },
+  {
+    path: '/error/:error',
+    name: 'ErrorDisplay',
+    props: true,
+    component: ErrorDisplay,
   },
 ]
 

@@ -25,15 +25,21 @@ export default createStore({
     createEvent({ commit }, event) {
       EventService.postEvent(event)
         .then(() => commit('ADD_EVENT', event))
-        .catch((err: AxiosError) => console.log({ err }))
+        .catch((err: AxiosError) => {
+          throw err
+        })
     },
+
     fetchEvents({ commit }) {
-      EventService.getEvents()
+      return EventService.getEvents()
         .then((res: AxiosResponse) => {
           commit('SET_EVENTS', res.data.events)
         })
-        .catch((err: AxiosError) => console.log(err))
+        .catch((err: AxiosError) => {
+          throw err
+        })
     },
+
     fetchEvent({ commit, state }, id) {
       // if the event to fetch is already in state.events, there is no need to fetch it once more
       const existingEvent = state.events.find((evt) => evt.id === id)
@@ -41,11 +47,13 @@ export default createStore({
       if (existingEvent) {
         commit('SET_EVENT', existingEvent)
       } else {
-        EventService.getEvent(id)
+        return EventService.getEvent(id)
           .then((res: AxiosResponse) => {
             commit('SET_EVENT', res.data.event)
           })
-          .catch((err: AxiosError) => console.log(err))
+          .catch((err: AxiosError) => {
+            throw err
+          })
       }
     },
   },
