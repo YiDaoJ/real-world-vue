@@ -6,6 +6,7 @@ declare module '@vue/runtime-core' {
   interface State {
     user: string
     events: iEvent[]
+    event: iEvent
   }
 
   // provide typings for `this.$store`

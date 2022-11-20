@@ -10,9 +10,6 @@
 </template>
 
 <script lang="ts">
-import EventService from '@/services/EventService'
-import { AxiosError, AxiosResponse } from 'axios'
-import { iEvent } from '@/types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -22,18 +19,13 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      event: {} as iEvent,
-    }
-  },
   created() {
-    // fetch event (by id) and set local date
-    EventService.getEvent(this.id)
-      .then((res: AxiosResponse) => {
-        this.event = res.data.event
-      })
-      .catch((err: AxiosError) => console.log(err))
+    this.$store.dispatch('fetchEvent', this.id)
+  },
+  computed: {
+    event() {
+      return this.$store.state.event
+    },
   },
 })
 </script>

@@ -8,26 +8,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import EventCard from '@/components/EventCard.vue' // @ is an alias to /src
-import { iEvent } from '@/types'
-import EventService from '@/services/EventService'
-import { AxiosResponse, AxiosError } from 'axios'
 
 export default defineComponent({
   name: 'EventList',
   components: {
     EventCard,
   },
-  data() {
-    return {
-      events: [] as iEvent[],
-    }
-  },
   created() {
-    EventService.getEvents()
-      .then((res: AxiosResponse) => {
-        this.events = res.data.events
-      })
-      .catch((err: AxiosError) => console.log(err))
+    this.$store.dispatch('fetchEvents')
+  },
+  computed: {
+    events() {
+      return this.$store.state.events
+    },
   },
 })
 </script>

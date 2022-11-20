@@ -35,8 +35,6 @@ import BaseRadioGroup from '@/components/BaseRadioGroup.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
 import { defineComponent } from 'vue'
-import EventService from '@/services/EventService'
-import { AxiosError } from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 
 export default defineComponent({
@@ -85,9 +83,7 @@ export default defineComponent({
         organizer: this.$store.state.user,
         id: uuidv4(),
       }
-      EventService.postEvent(event)
-        .then(() => this.$store.commit('ADD_EVENT', event))
-        .catch((err: AxiosError) => console.log({ err }))
+      this.$store.dispatch('createEvent', event)
     },
   },
 })
