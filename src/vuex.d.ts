@@ -1,9 +1,11 @@
 import { Store } from 'vuex'
+import { iEvent } from './types'
 
 declare module '@vue/runtime-core' {
   // declare your own store states
   interface State {
     user: string
+    events: iEvent[]
   }
 
   // provide typings for `this.$store`

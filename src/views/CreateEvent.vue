@@ -36,8 +36,9 @@ import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
 import { defineComponent } from 'vue'
 import EventService from '@/services/EventService'
-import { AxiosError, AxiosResponse } from 'axios'
+import { AxiosError } from 'axios'
 import { v4 as uuidv4 } from 'uuid'
+
 export default defineComponent({
   data() {
     return {
@@ -79,10 +80,13 @@ export default defineComponent({
   },
   methods: {
     submitForm() {
-      this.event.organizer = this.$store.state.user
-      this.event.id = uuidv4()
-      EventService.postEvent(this.event)
-        .then((res: AxiosResponse) => console.log({ res }))
+      const event = {
+        ...this.event,
+        organizer: this.$store.state.user,
+        id: uuidv4(),
+      }
+      EventService.postEvent(event)
+        .then(() => this.$store.commit('ADD_EVENT', event))
         .catch((err: AxiosError) => console.log({ err }))
     },
   },

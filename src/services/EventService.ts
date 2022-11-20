@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios'
 
 // single axios instance could be used fot the entire app
 const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'http://localhost:4000', // mock server stubsPort
   withCredentials: false,
   headers: {
     Accept: 'application/json',
