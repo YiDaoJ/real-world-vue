@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts">
+import { AxiosError } from 'axios'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -20,7 +21,12 @@ export default defineComponent({
     },
   },
   created() {
-    this.$store.dispatch('fetchEvent', this.id)
+    this.$store.dispatch('fetchEvent', this.id).catch((error: AxiosError) => {
+      this.$router.push({
+        name: 'ErrorDisplay',
+        params: { error: error.message },
+      })
+    })
   },
   computed: {
     event() {

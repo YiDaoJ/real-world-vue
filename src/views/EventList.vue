@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import EventCard from '@/components/EventCard.vue' // @ is an alias to /src
+import { AxiosError } from 'axios'
 
 export default defineComponent({
   name: 'EventList',
@@ -15,7 +16,12 @@ export default defineComponent({
     EventCard,
   },
   created() {
-    this.$store.dispatch('fetchEvents')
+    this.$store.dispatch('fetchEvents').catch((error: AxiosError) => {
+      this.$router.push({
+        name: 'ErrorDisplay',
+        params: { error: error.message },
+      })
+    })
   },
   computed: {
     events() {

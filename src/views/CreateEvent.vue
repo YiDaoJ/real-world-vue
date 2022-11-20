@@ -36,6 +36,7 @@ import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
 import { defineComponent } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import { AxiosError } from 'axios'
 
 export default defineComponent({
   data() {
@@ -83,7 +84,21 @@ export default defineComponent({
         organizer: this.$store.state.user,
         id: uuidv4(),
       }
-      this.$store.dispatch('createEvent', event)
+      this.$store
+        .dispatch('createEvent', event)
+        .then(() => {
+          // lead to new router behavior
+          this.$router.push({
+            name: 'EventDetail',
+            params: { id: event.id },
+          })
+        })
+        .catch((error: AxiosError) => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            params: { error: error.message },
+          })
+        })
     },
   },
 })
