@@ -4,7 +4,8 @@ Learn vue 3 along with [Vue Mastery](https://www.vuemastery.com/).
 
 - Part 1: [Real World Vue 3](https://www.vuemastery.com/courses/real-world-vue3/rwv3-orientation) ☑️
 - Part 2: [Vue 3 Forms](https://www.vuemastery.com/courses/vue3-forms/forms-introduction) ☑️
-- Part 3: [Vuex Fundamentals](https://www.vuemastery.com/courses/vuex-fundamentals/vuex4-intro-to-vuex)
+- Part 3: [Vuex Fundamentals](https://www.vuemastery.com/courses/vuex-fundamentals/vuex4-intro-to-vuex) ☑️
+- TBC...
 
 ## Project setup
 
@@ -34,6 +35,7 @@ npm run lint
 
 Repo: mock-server, branch: [for-real-world-vue](https://github.com/YiDaoJ/mock-server/tree/for-real-world-vue)
 Server mocked with [stubr](https://stubr.readme.io/)
+
 **Install and run**
 
 ```
@@ -47,4 +49,4 @@ npm run dev
 - [ ] default value for radio group
 - [ ] error message for fields
 - [ ] validate input value
-- [ ] wenn form data is valid then send create event request to mock server
+  - [ ] TO FIX: when all input fields are empty, data shouldnt be sent to mock server via clicking submit
