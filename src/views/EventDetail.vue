@@ -17,21 +17,21 @@ export default defineComponent({
   props: {
     id: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   created() {
     this.$store.dispatch('fetchEvent', this.id).catch((error: AxiosError) => {
       this.$router.push({
         name: 'ErrorDisplay',
-        params: { error: error.message },
+        params: { error: error.message }
       })
     })
   },
   computed: {
     event() {
       return this.$store.state.event
-    },
-  },
+    }
+  }
 })
 </script>

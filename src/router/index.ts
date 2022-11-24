@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 import EventList from '@/views/EventList.vue'
 import EventDetail from '@/views/EventDetail.vue'
 import CreateEvent from '@/views/CreateEvent.vue'
@@ -8,30 +8,30 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'EventList',
-    component: EventList,
+    component: EventList
   },
   {
     path: '/create',
     name: 'CreateEvent',
-    component: CreateEvent,
+    component: CreateEvent
   },
   {
     path: '/event/:id',
     name: 'EventDetail',
     props: true,
-    component: EventDetail,
+    component: EventDetail
   },
   {
     path: '/error/:error',
     name: 'ErrorDisplay',
     props: true,
-    component: ErrorDisplay,
-  },
+    component: ErrorDisplay
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
+  routes
 })
 
 export default router

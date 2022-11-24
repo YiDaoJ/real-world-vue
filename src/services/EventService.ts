@@ -1,5 +1,6 @@
-import { iEvent } from '@/types'
 import axios, { AxiosInstance } from 'axios'
+
+import { iEvent } from '@/types'
 
 // single axios instance could be used fot the entire app
 const apiClient: AxiosInstance = axios.create({
@@ -7,8 +8,8 @@ const apiClient: AxiosInstance = axios.create({
   withCredentials: false,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json'
+  }
 })
 
 export default {
@@ -20,5 +21,5 @@ export default {
   },
   postEvent(event: iEvent) {
     return apiClient.post('/events', { event })
-  },
+  }
 }

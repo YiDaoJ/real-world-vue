@@ -7,7 +7,7 @@ export default createStore({
   state: {
     user: 'Max Ingwer',
     events: [] as iEvent[],
-    event: {} as iEvent,
+    event: {} as iEvent
   },
   getters: {},
   mutations: {
@@ -19,7 +19,7 @@ export default createStore({
     },
     SET_EVENT(state, event) {
       state.event = event
-    },
+    }
   },
   actions: {
     createEvent({ commit }, event) {
@@ -55,8 +55,8 @@ export default createStore({
             throw err
           })
       }
-    },
+    }
   },
   // actions can wrap business logic around mutations, like loading status
-  modules: {},
+  modules: {}
 })

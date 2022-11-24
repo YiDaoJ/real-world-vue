@@ -20,17 +20,17 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     modelValue: {
       type: [String, Number],
-      defautl: '',
-    },
+      defautl: ''
+    }
   },
   setup() {
     const id = uuidv4()
     return { id }
-  },
+  }
 })
 </script>
 

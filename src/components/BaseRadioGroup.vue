@@ -16,33 +16,33 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { RadioOptionType } from '../types'
 import BaseRadio from './BaseRadio.vue'
+import { RadioOptionType } from '../types'
 
 export default defineComponent({
   props: {
     options: {
       type: Array as () => Array<RadioOptionType>,
-      required: true,
+      required: true
     },
     name: {
       type: String,
-      required: true,
+      required: true
     },
     title: {
-      type: String,
+      type: String
     },
     modelValue: {
       type: [String, Number, Boolean],
-      required: true,
-    },
+      required: true
+    }
   },
   components: { BaseRadio },
   computed: {
     defaultValue() {
       return this.options[0].value || ''
-    },
-  },
+    }
+  }
 })
 </script>
 

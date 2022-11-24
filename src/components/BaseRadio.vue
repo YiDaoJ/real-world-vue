@@ -21,24 +21,24 @@ export default defineComponent({
     label: {
       type: String,
       required: true,
-      default: '',
+      default: ''
     },
     modelValue: {
       type: [String, Number, Boolean],
-      default: '',
+      default: ''
     },
     value: {
       type: [String, Number, Boolean],
-      required: true,
+      required: true
     },
     defaultValue: {
-      type: [String, Number, Boolean],
-    },
+      type: [String, Number, Boolean]
+    }
   },
   setup() {
     const id = uuidv4()
     return { id }
-  },
+  }
 })
 </script>
 

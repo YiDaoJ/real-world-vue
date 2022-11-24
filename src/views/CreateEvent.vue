@@ -48,7 +48,7 @@ export default defineComponent({
         'housing',
         'education',
         'food',
-        'community',
+        'community'
       ],
       event: {
         id: '',
@@ -60,14 +60,14 @@ export default defineComponent({
         date: '',
         extras: {
           catering: false,
-          music: false,
+          music: false
         },
-        organizer: '', // avoid this.$store.state.data => can cause reactivity issuse
+        organizer: '' // avoid this.$store.state.data => can cause reactivity issuse
       } as iEvent,
       petsOptions: [
         { value: true, label: 'Yes' },
-        { value: false, label: 'No' },
-      ],
+        { value: false, label: 'No' }
+      ]
     }
   },
   // ATTN: via auto importing
@@ -75,14 +75,14 @@ export default defineComponent({
     BaseSelect,
     BaseInput,
     BaseCheckbox,
-    BaseRadioGroup,
+    BaseRadioGroup
   },
   methods: {
     submitForm() {
       const event = {
         ...this.event,
         organizer: this.$store.state.user,
-        id: uuidv4(),
+        id: uuidv4()
       }
       this.$store
         .dispatch('createEvent', event)
@@ -90,17 +90,17 @@ export default defineComponent({
           // lead to new router behavior
           this.$router.push({
             name: 'EventDetail',
-            params: { id: event.id },
+            params: { id: event.id }
           })
         })
         .catch((error: AxiosError) => {
           this.$router.push({
             name: 'ErrorDisplay',
-            params: { error: error.message },
+            params: { error: error.message }
           })
         })
-    },
-  },
+    }
+  }
 })
 </script>
 

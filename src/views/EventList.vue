@@ -13,21 +13,21 @@ import { AxiosError } from 'axios'
 export default defineComponent({
   name: 'EventList',
   components: {
-    EventCard,
+    EventCard
   },
   created() {
     this.$store.dispatch('fetchEvents').catch((error: AxiosError) => {
       this.$router.push({
         name: 'ErrorDisplay',
-        params: { error: error.message },
+        params: { error: error.message }
       })
     })
   },
   computed: {
     events() {
       return this.$store.state.events
-    },
-  },
+    }
+  }
 })
 </script>
 

@@ -20,17 +20,17 @@ export default defineComponent({
     label: {
       type: String,
       required: true,
-      default: '',
+      default: ''
     },
     modelValue: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   setup() {
     const id = uuidv4()
     return { id }
-  },
+  }
 })
 </script>
 

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { PropType, defineComponent } from 'vue'
 import { iEvent } from '../types'
 
 export default defineComponent({
@@ -20,9 +20,9 @@ export default defineComponent({
   props: {
     event: {
       type: Object as PropType<iEvent>,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 })
 </script>
 
