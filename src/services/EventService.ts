@@ -4,7 +4,7 @@ import { iEvent } from '@/types'
 
 // single axios instance could be used fot the entire app
 const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:4090', // mock server stubsPort
+  baseURL: 'http://localhost:4080', // mock server stubsPort
   withCredentials: false,
   headers: {
     Accept: 'application/json',
