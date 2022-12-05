@@ -51,3 +51,4 @@ npm run dev
 - [ ] validate input value
   - [ ] TO FIX: when all input fields are empty, data shouldnt be sent to mock server via clicking submit
 - [ ] move generating id to mock server
+- [ ] 123
