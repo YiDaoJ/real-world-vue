@@ -23,8 +23,11 @@ export default createStore({
   },
   actions: {
     createEvent({ commit }, event) {
-      EventService.postEvent(event)
-        .then(() => commit('ADD_EVENT', event))
+      return EventService.postEvent(event)
+        .then((res) => {
+          commit('ADD_EVENT', res.data.event)
+          return res.data.event
+        })
         .catch((err: AxiosError) => {
           throw err
         })

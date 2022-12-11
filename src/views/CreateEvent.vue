@@ -34,9 +34,8 @@ import BaseInput from '@/components/BaseInput.vue'
 import BaseRadioGroup from '@/components/BaseRadioGroup.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import { iEvent } from '@/types'
-import { defineComponent } from 'vue'
-import { v4 as uuidv4 } from 'uuid'
 import { AxiosError } from 'axios'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   data() {
@@ -81,16 +80,17 @@ export default defineComponent({
     submitForm() {
       const event = {
         ...this.event,
-        organizer: this.$store.state.user,
-        id: uuidv4()
+        organizer: this.$store.state.user
       }
       this.$store
         .dispatch('createEvent', event)
-        .then(() => {
+        .then((result) => {
           // lead to new router behavior
           this.$router.push({
             name: 'EventDetail',
-            params: { id: event.id }
+            params: {
+              id: result.id
+            }
           })
         })
         .catch((error: AxiosError) => {

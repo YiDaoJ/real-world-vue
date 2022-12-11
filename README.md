@@ -46,10 +46,14 @@ npm run dev
 ## ToDo
 
 - [ ] accessbility for fields
+
 - [ ] default value for radio group
+
 - [ ] error message for fields
+
 - [ ] validate input value
   - [ ] TO FIX: when all input fields are empty, data shouldnt be sent to mock server via clicking submit
-- [ ] move generating id to mock server
-- [ ] abc
-- ???
+  
+- [x] move generating id to mock server
+
+  
